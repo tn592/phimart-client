@@ -1,23 +1,16 @@
-const List = () => {
-	const fruits = [
-		"Apple",
-		"Banana",
-		"Orange",
-		"Grapes",
-		"Mango",
-		"Pine Apple",
-	];
-	
-	// fruits.map((fruit) => console.log(fruit))
-	let selectedIndex = -1;
-	const handleItemPrint = (index) => {
-		selectedIndex = index;
-		console.log(selectedIndex);
-	};
+import { useState } from "react";
+// eslint-disable-next-line react/prop-types
+const List = ({items = [], heading}) => {
+	// console.log(props);
+
+	const [selectedIndex, setSelectedIndex] = useState(-1);
+	// const [name, setName] = useState("");
+
 	return (
 		<div>
+			<h1 className="text-xl font-bold">{heading}</h1>
 			<ul className="pl-6 list-decimal">
-				{fruits.map((fruit, index) => {
+				{items.map((fruit, index) => {
 					return (
 						<li
 							className={
@@ -25,7 +18,7 @@ const List = () => {
 									? "bg-blue-500 p-3 rounded-sm m-3"
 									: ""
 							}
-							onClick={() => handleItemPrint(index)}
+							onClick={() => setSelectedIndex(index)}
 							key={fruit}
 						>
 							{fruit}
