@@ -7,6 +7,7 @@ const List = () => {
 		"Mango",
 		"Pine Apple",
 	];
+	
 	// fruits.map((fruit) => console.log(fruit))
 	let selectedIndex = -1;
 	const handleItemPrint = (index) => {
