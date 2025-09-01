@@ -1,11 +1,9 @@
 // import "./App.css";
-// import PlayWithButton from "./components/PlayWithButton";
-import Person from "./components/Person";
+import Skills from "./components/Skills";
 function App() {
   return (
     <>
-      {/*<PlayWithButton />*/}
-      <Person />
+      <Skills />
     </>
   );
 }
