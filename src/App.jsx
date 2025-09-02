@@ -1,9 +1,9 @@
 // import "./App.css";
-import Form from "./components/Form";
+import FormState from "./components/FormState";
 function App() {
   return (
     <div className="m-5">
-      <Form />
+      <FormState />
     </div>
   );
 }
