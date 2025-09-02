@@ -1,27 +1,11 @@
 // import "./App.css";
-import { useState } from "react";
-import Navbar from "./components/Navbar";
-import Cart from "./components/Cart";
+import Effect from "./components/Effect";
 function App() {
-  const [cartItems, setCartItems] = useState([
-    "product 1",
-    "product 2",
-    "product 3",
-    "product 4",
-  ]);
-  const handleProductRemove = (item) => {
-    setCartItems(cartItems.filter((product) => product != item));
-  };
-  return (
-    <div className="m-5">
-      <Navbar cartItemsCount={cartItems.length} />
-      <Cart
-        cartItems={cartItems}
-        onClear={() => setCartItems([])}
-        onRemove={handleProductRemove}
-      />
-    </div>
-  );
+  return (<div className="m-5">
+    <Effect />
+    <Effect />
+    <Effect />
+  </div>);
 }
 
 export default App;
