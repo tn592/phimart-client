@@ -7,7 +7,7 @@ const CartApp = () => {
 		console.log(data);
 	};
 	return (
-		<div className="w-2/3 mx-auto bg-gray-100 rounded-lg p-6 shadow-md">
+		<div className="w-2/3 mx-auto bg-gray-900 rounded-lg p-6 shadow-md">
 			<form onSubmit={handleSubmit(addItem)} className="mb-4 space-y-2">
 				<input
 					{...register("name", { required: true })}
