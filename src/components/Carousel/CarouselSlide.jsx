@@ -1,15 +1,15 @@
 import bgImg from "../../assets/images/banner-image-bg.jpg";
 // eslint-disable-next-line react/prop-types
-const CarouselSlide = ({title, subtitle, image}) => {
+const CarouselSlide = ({ title, subtitle, image }) => {
 	return (
 		<section
-			className="w-full h-[650px] bg-cover bg-center flex justify-center item-center px-8"
+			className="w-full h-[650px] bg-cover bg-center flex justify-center item-center px-4 md:px-8"
 			style={{ backgroundImage: `url(${bgImg})` }}
 		>
-			<div className="max-w-6xl flex items-center justify-between px-8">
+			<div className="max-w-6xl w-full flex flex-col md:flex-row items-center justify-between px-4  md:px-8">
 				{/*Left Content*/}
-				<div className="w-1/2">
-					<h1 className="text-5xl font-bold text-gray-900">
+				<div className="w-full md:w-1/2 text-center md:text-left mb-2 md:mb-0">
+					<h1 className="text-4xl md:text-5xl font-bold text-gray-900">
 						{title}
 					</h1>
 					<p className="text-gray-600 my-4">{subtitle}</p>
@@ -19,9 +19,9 @@ const CarouselSlide = ({title, subtitle, image}) => {
 				</div>
 
 				{/*right image*/}
-				<div className="w-1/2 flex justify-center">
+				<div className="w-full md:w-1/2 flex justify-center">
 					<img
-						className="max-w-md drop-shadow-lg"
+						className="max-w-full md:max-w-md drop-shadow-lg"
 						src={image}
 						alt=""
 					/>
