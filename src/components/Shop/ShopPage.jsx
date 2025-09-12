@@ -11,20 +11,36 @@ const ShopPage = () => {
 
 	useEffect(() => {
 		fetchProducts();
-	}, []);
+	}, [currentPage]);
 
-	const fetchProducts = () => {
+	// const fetchProducts = () => {
+	// 	setLoading(true);
+	// 	apiClient
+	// 		.get(`/products/?page=${currentPage}`)
+	// 		.then((res) => {
+	// 			setProducts(res.data.results);
+	// 			setTotalPages(
+	// 				Math.ceil(res.data.count / res.data.results.length),
+	// 			);
+	// 		})
+	// 		.catch((error) => console.log(error))
+	// 		.finally(() => setLoading(false));
+	// };
+
+	const fetchProducts = async () => {
 		setLoading(true);
-		apiClient
-			.get("/products")
-			.then((res) => {
-				setProducts(res.data.results);
-				setTotalPages(
-					Math.ceil(res.data.count / res.data.results.length),
-				);
-			})
-			.catch((error) => console.log(error))
-			.finally(() => setLoading(false));
+		try {
+			const response = await apiClient.get(
+				`/products/?page=${currentPage}`,
+			);
+			const data = await response.data;
+			setProducts(data.results);
+			setTotalPages(Math.ceil(data.count / data.results.length));
+		} catch (error) {
+			console.log(error);
+		} finally {
+			setLoading(false);
+		}
 	};
 	return (
 		<div>
