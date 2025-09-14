@@ -6,6 +6,7 @@ const useFetchProduct = (
 	priceRange,
 	selectedCategory,
 	searchQuery,
+	sortOrder,
 ) => {
 	const [products, setProducts] = useState([]);
 	const [loading, setLoading] = useState(false);
@@ -14,7 +15,7 @@ const useFetchProduct = (
 		const fetchProducts = async () => {
 			setLoading(true);
 			const url = `/products/?price__gt=${priceRange[0]}&price__lt=${priceRange[1]}&page=${currentPage}&
-			category_id=${selectedCategory}&search=${searchQuery}`;
+			category_id=${selectedCategory}&search=${searchQuery}&ordering=${sortOrder}`;
 			try {
 				const response = await apiClient.get(url);
 				const data = await response.data;
@@ -27,7 +28,7 @@ const useFetchProduct = (
 			}
 		};
 		fetchProducts();
-	}, [currentPage, priceRange, selectedCategory, searchQuery]);
+	}, [currentPage, priceRange, selectedCategory, searchQuery, sortOrder]);
 
 	return { products, loading, totalPages };
 };
