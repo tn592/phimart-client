@@ -7,9 +7,7 @@ export const AuthProvider = ({ children }) => {
   const allContext = useAuth();
 
   return (
-    <AuthContext.Provider value={{ allContext }}>
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={allContext}>{children}</AuthContext.Provider>
   );
 };
 
