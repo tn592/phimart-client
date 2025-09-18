@@ -47,7 +47,18 @@ const useAuth = () => {
 		try {
 			await apiClient.post("/auth/users/", userData);
 		} catch (error) {
-			console.log(error);
+			if (error.response && error.response.data) {
+				const errorMessage = Object.values(error.response.data)
+					.flat()
+					.join("\n");
+				setErrorMsg(errorMessage);
+				return { success: false, message: errorMessage };
+			}
+			setErrorMsg("Registration failed, please try again");
+			return {
+				success: false,
+				message: "Registration failed, please try again",
+			};
 		}
 	};
 
