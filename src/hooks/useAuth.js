@@ -3,6 +3,7 @@ import apiClient from "../services/api-client";
 
 const useAuth = () => {
 	const [user, setUser] = useState(null);
+	const [errorMsg, setErrorMsg] = useState("");
 
 	const getToken = () => {
 		const token = localStorage.getItem("authTokens");
@@ -40,7 +41,17 @@ const useAuth = () => {
 		}
 	};
 
-	return { user, loginUser };
+	// Register User
+	const registerUser = async (userData) => {
+		setErrorMsg("");
+		try {
+			await apiClient.post("/auth/users/", userData);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	return { user, errorMsg, loginUser, registerUser };
 };
 
 export default useAuth;
