@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+=======
+// import "./App.css";
+import CartApp from "./cart/CartApp";
+>>>>>>> 3f44d1a (code updated)
 
 function App() {
   const [count, setCount] = useState(0)
