@@ -4,24 +4,27 @@ import ErrorAlert from "../ErrorAlert";
 import apiClient from "../../services/api-client";
 
 const ActivateAccount = () => {
-	const [message, setMessage] = useState("");
+const [message, setMessage] = useState("");
 	const [error, setError] = useState("");
 	const { uid, token } = useParams();
+
 	const navigate = useNavigate();
+
 	useEffect(() => {
 		apiClient
-			.post("/auth/users/activation", { uid, token })
+			.post("/auth/users/activation/", { uid, token })
 			.then((res) => {
-				setMessage("Account Activate Successfully");
+				setMessage("Account activate successfully");
 				setTimeout(() => navigate("/login"), 3000);
 			})
 			.catch((error) => {
 				setError(
-					"Something went wrong, please check your activation link",
+					"Something Went Wrong. Please check your activation link",
 				);
 				console.log(error);
 			});
 	}, []);
+
 	return (
 		<div className="flex items-center justify-center min-h-screen bg-base-200">
 			<div className="card bg-base-100 shadow-xl p-6">

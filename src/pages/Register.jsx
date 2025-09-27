@@ -7,7 +7,6 @@ import { useState } from "react";
 const Register = () => {
 	const { registerUser, errorMsg } = useAuthContext();
 	const [successMsg, setSuccessMsg] = useState("");
-	// const navigate = useNavigate();
 
 	const {
 		register,
@@ -20,12 +19,13 @@ const Register = () => {
 		delete data.confirm_password;
 		try {
 			const response = await registerUser(data);
+			console.log(response);
 			if (response.success) {
 				setSuccessMsg(response.message);
 				// setTimeout(() => navigate("/login"), 3000);
 			}
 		} catch (error) {
-			console.log("Registration Failed", error);
+			console.log("Registration failed", error);
 		}
 	};
 
@@ -52,6 +52,7 @@ const Register = () => {
 							<span>{successMsg}</span>
 						</div>
 					)}
+
 					<h2 className="card-title text-2xl font-bold">Sign Up</h2>
 					<p className="text-base-content/70">
 						Create an account to get started
@@ -203,6 +204,17 @@ const Register = () => {
 							className="btn btn-primary w-full"
 						></button>
 					</form>
+					<div className="mt-4 text-center">
+						<p className="text-sm">
+							Didn’t get the activation email?{" "}
+							<Link
+								to="/resend-activation"
+								className="link link-primary"
+							>
+								Resend Activation Email
+							</Link>
+						</p>
+					</div>
 
 					<div className="text-center mt-4">
 						<p className="text-base-content/70">
