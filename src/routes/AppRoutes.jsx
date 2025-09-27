@@ -13,6 +13,7 @@ import Profile from "../pages/Profile";
 import ResendActivation from "../components/Registration/ResendActivation";
 import ResetPassword from "../components/Dashboard/Profile/ResetPassword";
 import ResetPasswordConfirm from "../components/Dashboard/Profile/ResetPasswordConfirm";
+import ProductDetail from "../pages/ProductDetail";
 
 const AppRoutes = () => {
   return (
@@ -32,6 +33,7 @@ const AppRoutes = () => {
           path="password/reset/confirm/:uid/:token"
           element={<ResetPasswordConfirm />}
         />
+        <Route path="shop/:id" element={<ProductDetail />} />
       </Route>
       {/* Private Routes  */}
       <Route
