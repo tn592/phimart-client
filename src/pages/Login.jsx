@@ -87,6 +87,13 @@ const Login = () => {
               {loading ? "Logging In..." : "Login"}
             </button>
           </form>
+          <div className="mt-4">
+            <p className="text-sm">
+              <Link to="/reset-password" className="link link-primary">
+                Forgot Password?{" "}
+              </Link>
+            </p>
+          </div>
 
           <div className="text-center mt-4">
             <p className="text-base-content/70">

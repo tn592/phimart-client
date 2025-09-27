@@ -10,11 +10,14 @@ import PrivateRoute from "../components/PrivateRoute";
 import ActivateAccount from "../components/Registration/ActivateAccount";
 import DashboardLayout from "../layouts/DashboardLayout";
 import Profile from "../pages/Profile";
+import ResendActivation from "../components/Registration/ResendActivation";
+import ResetPassword from "../components/Dashboard/Profile/ResetPassword";
+import ResetPasswordConfirm from "../components/Dashboard/Profile/ResetPasswordConfirm";
 
 const AppRoutes = () => {
   return (
     <Routes>
-      {/*Public Routes*/}
+      {/* Public Routes  */}
 
       <Route element={<MainLayout />}>
         <Route path="/" element={<Home />} />
@@ -23,8 +26,14 @@ const AppRoutes = () => {
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="activate/:uid/:token" element={<ActivateAccount />} />
+        <Route path="resend-activation" element={<ResendActivation />} />
+        <Route path="reset-password" element={<ResetPassword />} />
+        <Route
+          path="password/reset/confirm/:uid/:token"
+          element={<ResetPasswordConfirm />}
+        />
       </Route>
-      {/*Private Routes*/}
+      {/* Private Routes  */}
       <Route
         path="dashboard"
         element={
