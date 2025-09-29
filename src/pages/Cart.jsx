@@ -2,11 +2,11 @@ import { useEffect } from "react";
 import useCartContext from "../hooks/useCartContext";
 
 const Cart = () => {
-	const { createCart } = useCartContext();
+	const { cart, createOrGetCart } = useCartContext();
 	useEffect(() => {
-		createCart();
+		createOrGetCart();
 	}, []);
-	return <div>This is Cart Page</div>;
+	return <div>{JSON.stringify(cart)}</div>;
 };
 
 export default Cart;
