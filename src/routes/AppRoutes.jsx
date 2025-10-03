@@ -15,6 +15,7 @@ import ResetPassword from "../components/Dashboard/Profile/ResetPassword";
 import ResetPasswordConfirm from "../components/Dashboard/Profile/ResetPasswordConfirm";
 import ProductDetail from "../pages/ProductDetail";
 import Cart from "../pages/Cart";
+import Orders from "../pages/Orders";
 
 const AppRoutes = () => {
   return (
@@ -48,6 +49,7 @@ const AppRoutes = () => {
         <Route index element={<Dashboard />} />
         <Route path="profile" element={<Profile />} />
         <Route path="cart" element={<Cart />} />
+        <Route path="orders" element={<Orders />} />
       </Route>
     </Routes>
   );
