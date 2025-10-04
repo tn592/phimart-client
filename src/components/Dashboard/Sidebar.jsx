@@ -28,7 +28,7 @@ const Sidebar = () => {
 		{ to: "/reviews", icon: FiStar, label: "Reviews" },
 		{ to: "/users", icon: FiUsers, label: "Users" },
 	];
-	const menuItems = user.is_stuff ? adminMenus : customerMenus;
+	const menuItems = user.is_staff ? adminMenus : customerMenus;
 	return (
 		<div className="drawer-side z-10">
 			<label
