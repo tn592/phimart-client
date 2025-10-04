@@ -14,6 +14,7 @@ const Cart = () => {
 	} = useCartContext();
 
 	const [localCart, setLocalCart] = useState(cart);
+
 	useEffect(() => {
 		if (!cart && !loading) createOrGetCart();
 	}, [createOrGetCart, cart, loading]);
@@ -23,13 +24,13 @@ const Cart = () => {
 	}, [cart]);
 
 	if (loading) return <p>Loading...</p>;
-	if (!localCart) return <p>No cart found</p>;
+	if (!localCart) return <p>No Cart Found</p>;
 
 	const handleUpdateQuantity = async (itemId, newQuantity) => {
 		const prevLocalCartCopy = localCart; // store a copy of localCart
 
 		setLocalCart((prevLocalCart) => {
-			const updatedItems = prevLocalCart.items.map((item) =>
+			const updatedItmes = prevLocalCart.items.map((item) =>
 				item.id === itemId
 					? {
 							...item,
@@ -38,15 +39,17 @@ const Cart = () => {
 						}
 					: item,
 			);
+
 			return {
 				...prevLocalCart,
-				items: updatedItems,
-				total_price: updatedItems.reduce(
+				items: updatedItmes,
+				total_price: updatedItmes.reduce(
 					(sum, item) => sum + item.total_price,
 					0,
 				),
 			};
 		});
+
 		try {
 			await updateCartItemQuantity(itemId, newQuantity);
 		} catch (error) {
@@ -60,6 +63,7 @@ const Cart = () => {
 			const updatedItems = prevLocalCart.items.filter(
 				(item) => item.id != itemId,
 			);
+
 			return {
 				...prevLocalCart,
 				items: updatedItems,
@@ -69,6 +73,7 @@ const Cart = () => {
 				),
 			};
 		});
+
 		try {
 			await deleteCartItems(itemId);
 		} catch (error) {
