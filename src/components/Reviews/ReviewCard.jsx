@@ -9,6 +9,8 @@ const ReviewCard = ({
   onEditClick,
   isEditing,
   onCancelEdit,
+  onSaveEdit,
+  onDeleteClick,
 }) => {
   console.log(review);
   return (
@@ -39,7 +41,10 @@ const ReviewCard = ({
               >
                 Edit
               </button>
-              <button className="btn btn-sm btn-outline btn-error">
+              <button
+                onClick={onDeleteClick}
+                className="btn btn-sm btn-outline btn-error"
+              >
                 Delete
               </button>
             </div>
@@ -50,6 +55,7 @@ const ReviewCard = ({
             editReview={editReview}
             setEditReview={setEditReview}
             onCancelEdit={onCancelEdit}
+            onSave={() => onSaveEdit(review.id)}
           />
         ) : (
           <div className="mt-4">
