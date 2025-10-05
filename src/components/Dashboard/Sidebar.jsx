@@ -20,7 +20,11 @@ const Sidebar = () => {
 	const adminMenus = [
 		{ to: "/dashboard", icon: FiBarChart2, label: "Dashboard" },
 		{ to: "/products", icon: FiPackage, label: "Products" },
-		{ to: "/products/add", icon: FiPlusCircle, label: "Add Products" },
+		{
+			to: "/dashboard/products/add",
+			icon: FiPlusCircle,
+			label: "Add Products",
+		},
 		{ to: "/categories", icon: FiTag, label: "Categories" },
 		{ to: "/categories/add", icon: FiPlusCircle, label: "Add Categories" },
 		{ to: "/dashboard/cart", icon: FiShoppingCart, label: "Cart" },
@@ -28,6 +32,7 @@ const Sidebar = () => {
 		{ to: "/reviews", icon: FiStar, label: "Reviews" },
 		{ to: "/users", icon: FiUsers, label: "Users" },
 	];
+
 	const menuItems = user.is_staff ? adminMenus : customerMenus;
 	return (
 		<div className="drawer-side z-10">
